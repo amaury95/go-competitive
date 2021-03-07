@@ -12,19 +12,44 @@ var _ = Describe("BinaryTree", func() {
 
 		BeforeEach(func() {
 			tree = &BinaryTree{
-				Value:      1,
-				LeftChild:  &BinaryTree{Value: 2},
-				RightChild: &BinaryTree{Value: 3},
+				Value: 1,
+				LeftChild: &BinaryTree{
+					Value: 2,
+					LeftChild: &BinaryTree{
+						Value: 4,
+					},
+					RightChild: &BinaryTree{
+						Value: 5,
+					},
+				},
+				RightChild: &BinaryTree{
+					Value: 3,
+					RightChild: &BinaryTree{
+						Value: 6,
+					},
+				},
 			}
 		})
 
 		Describe("PreOrder", func() {
-			It("should return the elements in the pre order", func() {
-				result := []int{1, 2, 3}
-				Expect(tree.PreOrder()).To(Equal(result))
+			result := []int{1, 2, 4, 5, 3, 6}
+			It("should return the elements in the pre order using recursive method", func() {
+				Expect(tree.RecursivePreOrder()).To(Equal(result))
+			})
+			It("should return the elements in the pre order using iterative method", func() {
 				Expect(tree.IterativePreOrder()).To(Equal(result))
 			})
 		})
-		
+
+		Describe("InOrder", func() {
+			result := []int{4, 2, 5, 1, 3, 6}
+			It("should return the elements in the in order using recursive method", func() {
+				Expect(tree.RecursiveInOrder()).To(Equal(result))
+			})
+			It("should return the elements in the in order using iterative method", func() {
+				Expect(tree.IterativeInOrder()).To(Equal(result))
+			})
+		})
+
 	})
 })
