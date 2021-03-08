@@ -13,9 +13,18 @@ func (s *Stack) Values() []int {
 	return s.values[:s.length]
 }
 
-// Length ...
-func (s *Stack) Length() int {
+// Len ...
+func (s *Stack) Len() int {
 	return s.length
+}
+
+// Peek ...
+func (s *Stack) Peek() (int, error) {
+	if s.length == 0 {
+		return 0, errors.New("empty stack")
+	}
+
+	return s.values[s.length-1], nil
 }
 
 // Push ...

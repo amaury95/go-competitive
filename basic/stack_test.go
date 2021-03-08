@@ -18,7 +18,7 @@ var _ = Describe("Stack", func() {
 			Expect(stack.Values()).To(HaveLen(0))
 		})
 		It("should have length 0", func() {
-			Expect(stack.Length()).To(Equal(0))
+			Expect(stack.Len()).To(Equal(0))
 		})
 		It("should fail poping an element", func() {
 			val, err := stack.Pop()
@@ -35,13 +35,13 @@ var _ = Describe("Stack", func() {
 				Expect(stack.Values()).To(HaveLen(1))
 			})
 			It("should have length 1", func() {
-				Expect(stack.Length()).To(Equal(1))
+				Expect(stack.Len()).To(Equal(1))
 			})
 			It("should succed poping an element", func() {
 				val, err := stack.Pop()
 				Expect(val).To(Equal(element))
 				Expect(err).To(BeNil())
-				Expect(stack.Length()).To(Equal(0))
+				Expect(stack.Len()).To(Equal(0))
 			})
 		})
 	})
@@ -58,7 +58,7 @@ var _ = Describe("Stack", func() {
 			Expect(stack.Values()).To(HaveLen(32))
 		})
 		It("should have length 32", func() {
-			Expect(stack.Length()).To(Equal(32))
+			Expect(stack.Len()).To(Equal(32))
 		})
 		 
 		Context("adding an element", func(){
@@ -71,13 +71,13 @@ var _ = Describe("Stack", func() {
 				Expect(stack.Values()).To(HaveLen(33))
 			})
 			It("should have length 33", func() {
-				Expect(stack.Length()).To(Equal(33))
+				Expect(stack.Len()).To(Equal(33))
 			})
 			It("should succed poping an element", func() {
 				val, err := stack.Pop()
 				Expect(val).To(Equal(element))
 				Expect(err).To(BeNil())
-				Expect(stack.Length()).To(Equal(32))
+				Expect(stack.Len()).To(Equal(32))
 			})
 		})
 	})
